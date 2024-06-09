@@ -1,11 +1,29 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let quien = ["mi perro", "mi bebé", "el tío", "un vecino"];
+let accion = ["comió", "rompió", "aplastó", "quemó"];
+let objeto = ["mi tarea", "mi casa", "el auto"];
+let cuando = [
+  "mientras dormía",
+  "en la madrugada",
+  "cuando hacía ejercicio",
+  "durante el almuerzo",
+  "mientras estaba rezando"
+];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function obtenerElementoAleatorio(array) {
+  let indiceAleatorio = Math.floor(Math.random() * array.length);
+  return array[indiceAleatorio]; // Corregido aquí
+}
+
+function excusaRandom() {
+  const randomQuien = obtenerElementoAleatorio(quien);
+  const randomAccion = obtenerElementoAleatorio(accion);
+  const randomObjeto = obtenerElementoAleatorio(objeto);
+  const randomCuando = obtenerElementoAleatorio(cuando);
+
+  return `${randomQuien} ${randomAccion} ${randomObjeto} ${randomCuando}.`;
+}
 
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  const randomExcusa = excusaRandom();
+  document.getElementById("excusa").innerText = randomExcusa;
 };
